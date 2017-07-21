@@ -79,8 +79,8 @@ import time
 
 major_ver = 0
 minor_ver = 7
-nano_ver = 3
-branch = 'b1'
+nano_ver = 4
+branch = 'b0'
 
 version = "%d.%d.%d%s" % (major_ver, minor_ver, nano_ver, branch)
 
@@ -94,9 +94,19 @@ with open( "automator/__version__.py", 'w' ) as fh:
 INSTALL_AUTOMATOR = True
 if sys.version_info < (2, 7):
     raise RuntimeError( "ZorroAutomator requires python 2.7 or greater" )
-if sys.version_info > (3, 4):
-    print( "WARNING: PySide is not compatible with Python > 3.5, Automator will not be installed" )
-    INSTALL_AUTOMATOR = False
+if os.name == 'nt':
+    try:
+        import PySide
+    except ImportError:
+        print( "WARNING: PySide not found. Download and install the wheel from http://www.lfd.uci.edu/~gohlke/pythonlibs/" )
+        INSTALL_AUTOMATOR = False
+else: # Linux
+    try:
+        import PySide
+    except ImportError:
+        if sys.version_info > (3, 4):
+            print( "WARNING: PySide is not compatible with Python > 3.5, Automator will not be installed" )
+            INSTALL_AUTOMATOR = False
     
 # Always prefer setuptools over distutils
 try:
@@ -195,6 +205,7 @@ def setup_zorro():
                             'Programming Language :: Python :: 3',
                             'Programming Language :: Python :: 3.4',
                             'Programming Language :: Python :: 3.5',
+                            'Programming Language :: Python :: 3.6',
                             
                             # OS
                             'Operating System :: POSIX',
