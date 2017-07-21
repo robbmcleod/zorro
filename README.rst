@@ -4,7 +4,7 @@ Zorro Image Registration Software
 
 Author: Robert A. McLeod
 
-Email: robert.mcleod@unibas.ch
+Email: robbmcleod@gmail.com
 
 Zorro is a package designed for registration of image drift for dose fractionation in electron microscopy.  It is specifically designed to suppress correlated noise.
 
@@ -60,8 +60,9 @@ Feature List
 
 Citations
 ---------
+McLeod, R.A., Kowal, J., Ringler, P., Stahlberg, H. 2017. Robust image alignment for cryogenic transmission electron microscopy. J. Struct. Biol. 197:279-293.
 
-A manuscript regarding Zorro has been submitted to a peer-reviewed publication.
+http://www.sciencedirect.com/science/article/pii/S1047847716302520
 
 Zorro and Automator make use of or interface with the following 3rd party programs:
 
