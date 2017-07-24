@@ -40,7 +40,8 @@
   a public domain version.
   Visual Studio 2010 and later have stdint.h.
 */
-#ifdef _MSC_VER <= 1500		
+
+#if _MSC_VER < 1600		
 #include "win32/stdint.h"		
 #else		
 #include <stdint.h>

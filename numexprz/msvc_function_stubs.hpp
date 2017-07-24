@@ -46,10 +46,6 @@
 #define powf(x, y)    ((float)pow((double)(x), (double)(y)))
 #define floorf(x)    ((float)floor((double)(x)))
 
-#endif  // _MSC_VER < 1400
-
-
-/* Now the actual stubs */
 // RAM: add hypotf for complexf_functions.hpp, as it's something strange in earlier versions of MSVC
 // TODO: this should have an if _MSC_VER ???
 inline float hypotf(float x, float y) {
@@ -59,7 +55,9 @@ inline float hypotf(float x, float y) {
         ? ax * sqrt(1.0 + yx*yx)
         : ay * sqrt(1.0 + xy*xy);
 }
+#endif  // _MSC_VER < 1400
 
+/* Now the actual stubs */
 inline float sqrtf2(float x) {
     return sqrtf(x);
 }
